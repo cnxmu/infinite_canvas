@@ -1,6 +1,11 @@
 services:
   app:
-    image: ghcr.io/basketikun/infinite-canvas:latest
+    # 使用本地 Dockerfile 构建镜像（推荐用于开发）
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # 或者使用预构建的镜像（快速部署）
+    # image: ghcr.io/basketikun/infinite-canvas:latest
     container_name: infinite-canvas
     ports:
       - "3000:3000"
