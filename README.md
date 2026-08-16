@@ -45,7 +45,7 @@
 
 ### 在线体验
 
-访问 [https://www.aiba.hk](https://www.aiba.hk) 立即开始使用
+访问 [https://huabu.aiba.hk](https://huabu.aiba.hk) 立即开始使用
 
 ### 本地运行
 
