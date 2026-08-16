@@ -2,146 +2,541 @@
   <img src="web/public/logo.svg" width="96" alt="infinite-canvas logo">
 </p>
 
-<h1 align="center">无限画布 (infinite-canvas)</h1>
+<h1 align="center">无限画布 (Infinite Canvas)</h1>
 
 <p align="center">
-  <a href="https://linux.do/"><img src="https://img.shields.io/badge/Linux.do-Community-2b6de8?style=flat-square" alt="Linux.do"></a>
-  <a href="https://render.com/deploy?repo=https://github.com/basketikun/infinite-canvas"><img src="https://img.shields.io/badge/Render-Deploy-46e3b7?style=flat-square&logo=render&logoColor=111111" alt="Deploy to Render"></a>
-  <a href="https://github.com/basketikun/infinite-canvas"><img src="https://img.shields.io/github/stars/basketikun/infinite-canvas?style=flat-square&logo=github" alt="GitHub stars"></a>
-  <a href="https://github.com/basketikun/infinite-canvas/tags"><img src="https://img.shields.io/github/v/tag/basketikun/infinite-canvas?style=flat-square&label=version" alt="Version"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f97316?style=flat-square" alt="License"></a>
-  <a href="https://vite.dev/"><img src="https://img.shields.io/badge/Vite-7-646cff?style=flat-square&logo=vite&logoColor=white" alt="Vite"></a>
-  <a href="https://reactrouter.com/"><img src="https://img.shields.io/badge/React_Router-7-ca4245?style=flat-square&logo=reactrouter&logoColor=white" alt="React Router"></a>
+  <strong>AI 驱动的可视化创作工作台</strong>
 </p>
 
 <p align="center">
-<a href="https://trendshift.io/repositories/50077?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-50077" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/50077" alt="basketikun%2Finfinite-canvas | Trendshift" width="250" height="55"/></a>
+  <a href="#快速开始">快速开始</a> ·
+  <a href="#核心功能">核心功能</a> ·
+  <a href="#部署方案">部署方案</a> ·
+  <a href="#技术架构">技术架构</a> ·
+  <a href="#开发指南">开发指南</a> ·
+  <a href="#贡献指南">贡献</a>
 </p>
 
 <p align="center">
-  <a href="docs/content/docs/overview/quick-start.mdx">快速开始</a> · <a href="docs/content/docs/overview/features.mdx">功能介绍</a> · <a href="docs/content/docs/overview/render.mdx">Render 部署</a> · <a href="docs/content/docs/overview/docker.mdx">Docker 部署</a> · <a href="docs/content/docs/canvas/canvas-node-manual.mdx">画布节点操作手册</a> · <a href="docs/content/docs/canvas/canvas-shortcuts.mdx">画布快捷键</a> · <a href="SECURITY.md">漏洞提交</a> · <a href="docs/content/docs/progress/todo.mdx">待办事项</a> · <a href="canvas-agent/README.md">本地 Canvas Agent</a> · <a href="plugins/infinite-canvas">Codex app 插件</a>
+  <img src="https://img.shields.io/badge/React-19.2-61dafb?style=flat-square&logo=react" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-5.8-3178c6?style=flat-square&logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Vite-7-646cff?style=flat-square&logo=vite" alt="Vite">
+  <img src="https://img.shields.io/badge/License-MIT-f97316?style=flat-square" alt="License">
 </p>
 
-无限画布是一款面向图片创作的开源工作台。它把画布编排、AI 图片生成、参考图编辑、对话助手、提示词库和素材沉淀放在同一个界面里，适合用来探索视觉方案并连续迭代图片结果。
+---
 
-> [!CAUTION]
-> 项目目前处于开发阶段，不保证历史数据兼容。各种本地存储格式都可能直接调整，欢迎关注后续更新。
->
-> 如果你需要稳定维护自己的分支，建议自行 fork 后独立开发。二次开发与 PR 请保留原作者信息和前端页面标识。
+## 📖 简介
 
-## 赞助商
+无限画布是一款**开源的 AI 辅助创作平台**，专为图片、视频创作和视觉方案探索设计。它将画布编排、AI 生成、参考图编辑、对话助手、提示词库和素材管理整合在同一个界面，让你可以连续迭代创作内容，构建完整的创意工作流。
 
-<table>
-  <tr>
-    <td width="190" align="center">
-      <a href="https://www.atlascloud.ai/zh?utm_source=github&amp;utm_medium=link&amp;utm_campaign=infinite-canvas" target="_blank" rel="noopener noreferrer"><img src="assets/atlascloud.svg" width="163" alt="Atlas Cloud"></a>
-    </td>
-    <td>
-      <a href="https://www.atlascloud.ai/zh?utm_source=github&amp;utm_medium=link&amp;utm_campaign=infinite-canvas" target="_blank" rel="noopener noreferrer">Atlas Cloud</a> is a full-modal AI inference platform that gives developers a single AI API to access video generation, image generation, and LLM APIs. Instead of managing multiple vendor integrations, you connect once and get unified access to 300+ curated models across all modalities. Check out <a href="https://www.atlascloud.ai/console/coding-plan" target="_blank" rel="noopener noreferrer">Atlas Cloud's new coding plan promotion</a> for more budget-friendly API access.
-    </td>
-  </tr>
-  <tr>
-    <td width="190" align="center">
-      <a href="https://infistar.ai/register?aff=4X3V9NA9&amp;ref_source=link" target="_blank" rel="noopener noreferrer"><img src="assets/infistar.png" width="163" alt="Infistar.ai 无限星河"></a>
-    </td>
-    <td>
-      <strong>无限画布 × Infistar.ai 无限星河｜内置原生画布 · 全能多模态 API</strong> 💡 原生集成，即点即用： Infistar.ai 已原生上架无限画布！同时提供低至官方 1 折的稳定 API 中转服务，模型倍率与调用明细全程透明。 🎨 多模态生图/生视频： 完美适配 Seedance、FLUX、Midjourney、Sora、Runway、Luma、可灵（Kling）等顶级图片与视频大模型。 🧠 全系语言模型： 覆盖 OpenAI、Claude、Gemini、Grok、DeepSeek、Qwen、GLM 等国内外主流模型，兼容 OpenAI 标准接口。 ⚡ 动态调度： 多路供应保障高可用，拒绝断连。 🎁 专属福利： 通过 <a href="https://infistar.ai/register?aff=4X3V9NA9&amp;ref_source=link" target="_blank" rel="noopener noreferrer">专属链接</a> 注册，立享赠送额度/专属折扣/首充权益！
-    </td>
-  </tr>
-</table>
+### ✨ 特色
 
-## 核心功能
+- 🎨 **无限画布** - 自由拖拽、缩放、连线，构建视觉化工作流
+- 🤖 **AI 原生** - 支持文生图、图生图、视频生成、文本对话
+- 🔌 **插件系统** - 动态加载远程插件，自定义画布节点类型
+- 🛠️ **Canvas Agent** - 通过 MCP 协议连接 Codex/Claude，让 AI 操作画布
+- 💾 **本地优先** - 数据完全存储在浏览器，无需后端服务器
+- 🌐 **自定义接口** - 灵活适配各种 API 中转站和自建服务
 
-- 无限画布：多画布项目、节点拖拽缩放、连线、小地图、撤销重做、导入导出。
-- AI 创作：浏览器前台直连你配置的 OpenAI 兼容接口，支持文生图、图生图、参考图编辑、文本问答、音频和视频生成。
-- 画布助手：围绕选中节点和上游节点对话、生图，并把结果插回画布。
-- 本地 Agent：通过本机 Canvas Agent 连接 Codex / Claude Code，让 Agent 通过 MCP 操作当前画布；
-- Codex App 插件：提供 Codex app 插件，安装后会自动注册 MCP 并尝试拉起本地 Agent。
-- 插件系统：支持通过 URL 动态安装 / 启用 / 更新 / 卸载远程节点插件，并提供 TypeScript SDK 自行开发画布节点插件。
-- 自定义接口调用：可自定义生图 / 视频接口的调用方式，灵活适配各类中转站与自建服务。
-- 提示词库：浏览器前端直连多个 GitHub 开源项目，并缓存到 IndexedDB。
+---
 
-完整功能说明见 [功能介绍](docs/content/docs/overview/features.mdx)。
+## 🚀 快速开始
 
-如果你在为担心没有合适的生图API来发愁，可以查看该免费生图项目：[chatgpt2api](https://github.com/basketikun/chatgpt2api)
+### 在线体验
 
-## 快速开始
+访问 [https://www.aiba.hk](https://www.aiba.hk) 立即开始使用
 
-AI API Key、Base URL、画布、素材和生成记录默认保存在浏览器本地。
+### 本地运行
 
-### 本地开发
+**前置要求**
+- Node.js 18+ 或 Bun 1.0+
+- 现代浏览器（Chrome、Firefox、Edge、Safari）
+
+**安装步骤**
 
 ```bash
-git clone git@github.com:basketikun/infinite-canvas.git
+# 克隆仓库
+git clone https://github.com/your-repo/infinite-canvas.git
+cd infinite-canvas/web
+
+# 安装依赖（使用 Bun，更快）
+bun install
+
+# 启动开发服务器
+bun run dev
+
+# 或使用 npm
+npm install
+npm run dev
+```
+
+访问 `http://localhost:5173` 即可开始使用。
+
+### Docker 部署
+
+```bash
+# 克隆仓库
+git clone https://github.com/your-repo/infinite-canvas.git
 cd infinite-canvas
+
+# 启动服务
+docker compose up -d
+
+# 访问 http://localhost:3000
+```
+
+---
+
+## 🎯 核心功能
+
+### 1. 无限画布系统
+
+- **多画布项目管理** - 创建多个独立画布项目
+- **节点系统** - 图片、文本、配置、视频、音频、分组等节点类型
+- **连接系统** - 通过连线建立节点间的数据流关系
+- **交互操作** - 拖拽、缩放、框选、复制粘贴、撤销重做
+- **小地图导航** - 快速浏览和定位画布内容
+- **背景主题** - 点阵、网格、线条等多种背景样式
+
+### 2. AI 创作能力
+
+**图片生成**
+- 文生图 (Text-to-Image)
+- 图生图 (Image-to-Image)
+- 图片编辑 (Inpainting/Outpainting)
+- 批量生成
+- 参考图系统
+
+**视频生成**
+- 文生视频
+- 图生视频
+- 自定义分辨率和时长
+
+**音频生成**
+- 文字转语音 (TTS)
+- 多种音色选择
+- 支持多种音频格式
+
+**文本对话**
+- 流式响应
+- 多模态输入（文本 + 图片）
+- 上下文记忆
+
+### 3. 画布助手 (Canvas Agent)
+
+通过本地 Canvas Agent 连接 Codex/Claude Code，让 AI 通过自然语言操作画布：
+
+```
+你: "创建一个图片生成流程，生成一只猫"
+AI: 自动创建提示词节点 → 配置节点 → 图片节点，并连接它们
+```
+
+**特性**
+- MCP 协议集成
+- 24+ 画布操作工具
+- 自动化工作流构建
+- Skill 提炼和复用
+
+### 4. 插件系统
+
+**官方插件**
+- HTML 节点 - 渲染 HTML 内容
+- Markdown 节点 - 渲染 Markdown 文档
+- SVG 节点 - 渲染 SVG 图形
+- 全景图节点 - 360° 全景图查看器
+
+**自定义插件**
+- 使用 TypeScript SDK 开发
+- 动态加载和热更新
+- 隔离的存储空间
+- 完整的 React Hooks 支持
+
+### 5. 提示词库
+
+- 连接多个 GitHub 开源提示词项目
+- 自动缓存到 IndexedDB
+- 分类浏览和搜索
+- 一键应用到画布
+
+### 6. 素材管理
+
+- 本地素材库
+- 图片、视频、音频管理
+- 生成历史记录
+- 资源引用追踪
+
+---
+
+## 🏗️ 技术架构
+
+### 前端技术栈
+
+- **框架**: React 19.2 + TypeScript 5.8
+- **构建工具**: Vite 7
+- **路由**: React Router 7
+- **状态管理**: Zustand 5
+- **UI 组件**: Ant Design 6 + Tailwind CSS 4
+- **数据查询**: TanStack Query 5
+- **本地存储**: IndexedDB (localForage)
+- **国际化**: i18next + react-i18next
+- **动画**: motion 12
+
+### Canvas Agent 技术栈
+
+- **运行时**: Node.js 18+
+- **语言**: TypeScript 5
+- **Web 服务**: Express 5
+- **MCP SDK**: @modelcontextprotocol/sdk 1.12
+- **Codex SDK**: @openai/codex 0.146
+- **日志**: winston 3
+- **验证**: zod 3
+
+### 架构特点
+
+**无服务器前端**
+- 纯静态部署，无需后端
+- 浏览器直连 AI API
+- IndexedDB 本地存储
+- 资源垃圾回收机制
+
+**本地 Agent 架构**
+```
+浏览器 (Web)
+    ↓ HTTP/SSE
+Canvas Agent (本地服务)
+    ↓ stdio/MCP
+Codex / Claude Code
+```
+
+**插件系统**
+- 动态模块加载
+- React 单例共享
+- 命名空间隔离
+- 类型安全的 SDK
+
+---
+
+## 📦 部署方案
+
+### 方案 1: 静态托管
+
+构建静态文件并部署到任意静态托管服务：
+
+```bash
 cd web
 bun install
-bun run dev
+bun run build
+# dist/ 目录即为构建产物
 ```
 
-### Docker 运行
+支持的平台：
+- Vercel
+- Netlify
+- Cloudflare Pages
+- GitHub Pages
+- 阿里云 OSS
+- 腾讯云 COS
+
+### 方案 2: Docker
 
 ```bash
-git clone git@github.com:basketikun/infinite-canvas.git
-cd infinite-canvas
-docker compose up -d
+# 构建镜像
+docker build -t infinite-canvas .
+
+# 运行容器
+docker run -d -p 3000:3000 infinite-canvas
 ```
 
-运行后默认端口3000，可访问 `http://localhost:3000`。
+### 方案 3: Docker Compose
 
-首次打开后进入右上角配置，填入自己的 OpenAI 兼容 `Base URL` 和 `API Key`。
+```bash
+# 启动
+docker compose up -d
 
-如果默认的OpenAI接口调用方式与您的API不同，可自定义生图/视频脚本调用。
+# 停止
+docker compose down
 
-## 效果展示
+# 查看日志
+docker compose logs -f
+```
 
-<table width="100%">
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/TDFvGWDT/image.png" alt="image" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/zVwJq3YS/image.png" alt="image" border="0"></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/PvY3qhhK/image.png" alt="image" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/7D04LwN/image.png" alt="image" border="0"></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/bj30FtS5/5.png" alt="5" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/hxRvjw51/image.png" alt="image" border="0"></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/jkWsF8q1/image.png" alt="image" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/XrnfXHx7/image.png" alt="image" border="0"></td>
-  </tr>
-</table>
+### 环境变量配置
 
-## 联系方式
+创建 `.env` 文件：
 
-项目定制二次开发需求 / 生图 API 需求可联系。
+```env
+# 基础路径（如果部署在子路径）
+VITE_BASE=/
 
-邮箱：1844025705@qq.com · QQ：1844025705
+# 插件注册表 URL（自托管插件）
+VITE_PLUGIN_REGISTRY_URL=https://your-domain.com/plugins.json
 
-## 赞助支持
+# 开发插件（逗号分隔的 URL）
+VITE_DEV_PLUGINS=http://localhost:8080/plugin.js
 
-本项目长期开放广告赞助合作，欢迎品牌 / 产品投放，你的支持是持续更新的动力！
+# 分析工具
+VITE_ANALYTICS_GA4_ID=G-XXXXXXXXXX
+VITE_ANALYTICS_BAIDU_ID=xxxxxxxx
+```
 
-有广告赞助意向请通过上方联系方式沟通。
+---
 
-## 社区支持
+## 🛠️ 开发指南
 
-学 AI，上 L 站：[LinuxDO](https://linux.do/)
+### 项目结构
 
-点击链接加入群聊【AI开源交流】：https://qm.qq.com/q/DFnKzZ807u
+```
+infinite-canvas/
+├── web/                      # 前端应用
+│   ├── src/
+│   │   ├── components/       # 组件
+│   │   │   ├── canvas/       # 画布组件
+│   │   │   ├── agent/        # Agent 组件
+│   │   │   ├── layout/       # 布局组件
+│   │   │   └── ui/           # 基础 UI
+│   │   ├── pages/            # 页面
+│   │   ├── stores/           # 状态管理
+│   │   ├── lib/              # 核心库
+│   │   ├── services/         # API 服务
+│   │   ├── hooks/            # 自定义 Hooks
+│   │   ├── types/            # 类型定义
+│   │   └── i18n/             # 国际化
+│   ├── public/               # 静态资源
+│   └── vite.config.ts        # Vite 配置
+├── canvas-agent/             # Canvas Agent
+│   └── src/
+│       ├── server/           # HTTP/MCP 服务
+│       ├── agent/            # Codex 集成
+│       ├── canvas/           # 画布工具
+│       └── skills/           # Skill 管理
+├── plugins/                  # 插件生态
+│   ├── canvas/               # 画布节点插件
+│   │   ├── sdk/              # 插件 SDK
+│   │   ├── html/             # HTML 插件
+│   │   ├── markdown/         # Markdown 插件
+│   │   └── ...
+│   └── infinite-canvas/      # Codex app 插件
+├── docs/                     # 文档站点
+├── docker-compose.yml        # Docker Compose 配置
+├── Dockerfile                # Docker 镜像配置
+└── README.md                 # 项目文档
+```
 
-## 开源协议
+### 开发命令
 
-本项目使用 [MIT License](LICENSE)。任何人都可以免费使用、复制、修改、分发、再授权和商业使用本项目，也可以用于闭源产品。
+```bash
+# 前端开发
+cd web
+bun run dev          # 启动开发服务器
+bun run build        # 构建生产版本
+bun run preview      # 预览构建产物
+bun run lint         # 代码检查
+bun run type-check   # 类型检查
 
-## Star History
+# Canvas Agent 开发
+cd canvas-agent
+bun run dev          # 启动开发服务器
+bun run build        # 构建
+bun run mcp          # 启动 MCP 服务器
 
-<a href="https://www.star-history.com/?repos=basketikun%2Finfinite-canvas&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=basketikun/infinite-canvas&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=basketikun/infinite-canvas&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=basketikun/infinite-canvas&type=date&legend=top-left" />
- </picture>
-</a>
+# 插件开发
+cd plugins/canvas/your-plugin
+bun run dev          # 开发模式
+bun run build        # 构建插件
+```
+
+### 开发插件
+
+**1. 创建插件项目**
+
+```bash
+cd plugins/canvas
+mkdir my-plugin
+cd my-plugin
+bun init
+```
+
+**2. 安装 SDK**
+
+```bash
+bun add @infinite-canvas/plugin-sdk
+```
+
+**3. 编写插件**
+
+```typescript
+// src/index.ts
+import { definePlugin } from '@infinite-canvas/plugin-sdk';
+
+export default definePlugin({
+  id: 'my-plugin',
+  name: 'My Plugin',
+  version: '1.0.0',
+  nodes: [{
+    type: 'my-plugin:custom',
+    title: '自定义节点',
+    icon: '🎨',
+    defaultSize: { width: 400, height: 300 },
+    Content: ({ node, ctx }) => {
+      return (
+        <div>
+          <h3>{node.title}</h3>
+          <p>{node.metadata?.content || '空内容'}</p>
+        </div>
+      );
+    }
+  }]
+});
+```
+
+**4. 构建和测试**
+
+```bash
+bun run build
+# 在 web/.env 中添加
+# VITE_DEV_PLUGINS=http://localhost:8080/plugin.js
+```
+
+### API 文档
+
+详细的 API 文档请参考：
+- [插件 SDK 文档](./plugins/canvas/sdk/README.md)
+- [Canvas Agent API](./canvas-agent/README.md)
+- [画布节点操作手册](./docs/content/docs/canvas/canvas-node-manual.mdx)
+
+---
+
+## 🔧 配置说明
+
+### AI API 配置
+
+首次使用需要配置 AI API：
+
+1. 点击右上角 **设置图标**
+2. 填入以下信息：
+   - **Base URL**: API 端点地址
+   - **API Key**: 你的 API 密钥
+   - **模型列表**: 选择或添加模型
+
+**支持的 API 格式**
+- OpenAI 标准格式
+- Gemini API
+- Ark API
+- 自定义脚本
+
+### 自定义 API 调用
+
+如果默认接口调用方式不适配你的 API，可以编写自定义脚本：
+
+```javascript
+// 图片生成脚本示例
+const response = await http.post('/your-endpoint', {
+  prompt: prompt,
+  model: model,
+  size: params.size,
+  // ... 其他参数
+});
+
+// 返回格式
+return {
+  images: response.data.images.map(img => img.url)
+};
+```
+
+### Canvas Agent 配置
+
+**启动 Canvas Agent**
+
+```bash
+cd canvas-agent
+bun run start
+```
+
+默认配置：
+- 端口: 17371
+- Token: 自动生成
+- 监听: 127.0.0.1（仅本地）
+
+**连接到浏览器**
+
+1. Canvas Agent 启动后会显示连接 URL
+2. 在浏览器中点击右上角 **Agent 图标**
+3. 输入连接 URL 和 Token
+4. 点击连接
+
+---
+
+## 🤝 贡献指南
+
+欢迎所有形式的贡献！
+
+### 如何贡献
+
+1. **Fork 项目**
+2. **创建特性分支** (`git checkout -b feature/AmazingFeature`)
+3. **提交更改** (`git commit -m 'Add some AmazingFeature'`)
+4. **推送到分支** (`git push origin feature/AmazingFeature`)
+5. **开启 Pull Request**
+
+### 代码规范
+
+- 使用 TypeScript
+- 遵循 ESLint 配置
+- 使用 Prettier 格式化代码
+- 编写清晰的 commit 信息
+
+### 报告问题
+
+发现 Bug 或有功能建议？请[创建 Issue](https://github.com/your-repo/infinite-canvas/issues)
+
+---
+
+## 📄 开源协议
+
+本项目采用 [MIT License](LICENSE) 开源协议。
+
+**这意味着你可以：**
+- ✅ 商业使用
+- ✅ 修改代码
+- ✅ 分发
+- ✅ 私有使用
+
+**前提是：**
+- 📝 保留版权声明
+- 📝 包含许可证副本
+
+---
+
+## 🙏 致谢
+
+- [React](https://react.dev/) - UI 框架
+- [Vite](https://vitejs.dev/) - 构建工具
+- [Ant Design](https://ant.design/) - UI 组件库
+- [Zustand](https://zustand.docs.pmnd.rs/) - 状态管理
+- [TanStack Query](https://tanstack.com/query) - 数据查询
+- [Model Context Protocol](https://modelcontextprotocol.io/) - MCP 协议
+
+---
+
+## 📞 联系方式
+
+- **官网**: [https://www.aiba.hk](https://www.aiba.hk)
+- **邮箱**: support@aiba.hk
+- **QQ 群**: [加入交流群](#)
+
+---
+
+## ⭐ Star History
+
+如果这个项目对你有帮助，请给它一个 Star ⭐
+
+---
+
+<p align="center">
+  Made with ❤️ by Infinite Canvas Team
+</p>
+
+<p align="center">
+  Copyright © 2024 Infinite Canvas. All rights reserved.
+</p>
