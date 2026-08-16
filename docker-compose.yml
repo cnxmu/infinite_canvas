@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     # 或者使用预构建的镜像（快速部署）
-    # image: ghcr.io/basketikun/infinite-canvas:latest
+    # image: ghcr.cnxmu/infinite_canvas:latest
     container_name: infinite-canvas
     ports:
       - "3000:3000"
